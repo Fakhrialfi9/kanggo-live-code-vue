@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import adminComponents from "@/ui/pages/admin/admin.vue";
+import adminComponents from "@/main/layout/admin.vue";
 
 Vue.use(VueRouter);
 // get userProfile from localStorage
@@ -19,6 +19,11 @@ const routes = [
     name: "adminComponent",
     component: adminComponents,
     meta: { requiresRole: "admin" },
+    children: [
+      {
+        // Pages Admin
+      },
+    ],
   },
 ];
 
@@ -27,6 +32,5 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes,
 });
-
 
 export default router;
